@@ -220,7 +220,7 @@
         const form = document.getElementById('myForm');
         const data = new FormData(form);
 
-        fetch('https://docs.google.com/spreadsheets/d/1ZrOCXrAdLLrlIdsLjtR15mYasCTRQDjIGwRaU80kpQ0/edit?gid=0#gid=0', {
+        fetch('https://script.google.com/u/0/home/projects/1Q40IH2lOBtqDgZJ39Uc3DQyqyy9L_469cU417mTOtLQS_Rwu9wp26LYz/edit', {
           method: 'POST',
           body: data,
         }).then(response => response.text())
