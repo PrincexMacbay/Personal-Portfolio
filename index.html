@@ -195,7 +195,7 @@
 
   <section class="contact" id="contact">
     <h2 class="heading">Contact <span>Me</span></h2>
-    <form action="#" id="myForm">
+    <form id="myForm">
 
       <div class="input-group">
         <div class="input-box">
@@ -220,7 +220,7 @@
         const form = document.getElementById('myForm');
         const data = new FormData(form);
 
-        fetch('https://silly-nougat-566c36.netlify.app/', {
+        fetch('https://docs.google.com/spreadsheets/d/1ZrOCXrAdLLrlIdsLjtR15mYasCTRQDjIGwRaU80kpQ0/edit?gid=0#gid=0', {
           method: 'POST',
           body: data,
         }).then(response => response.text())
