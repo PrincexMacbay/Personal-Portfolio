@@ -195,7 +195,7 @@
 
   <section class="contact" id="contact">
     <h2 class="heading">Contact <span>Me</span></h2>
-    <form id="myForm">
+    <form id="myForm" onsubmit="submitForm(event)">
 
       <div class="input-group">
         <div class="input-box">
@@ -211,21 +211,44 @@
 
       <div class="input-group-2">
         <textarea name="" id="message" placeholder="Your Message" cols="30" rows="10"></textarea>
-        <input type="submit" value="Send Message" class="btn" onclick="submitForm()">
+        <input type="submit" value="Send Message" class="btn">
       </div>
     </form>
 
     <script>
-      function submitForm() {
+      function submitForm(e) {
+        e.preventDefault();
         const form = document.getElementById('myForm');
         const data = new FormData(form);
-
+        const keyValuePais = [];
+        for (let pair of formData.entries()) {
+          keyValuePairs.push(encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1]));
+        }
+  
+        const formDataString = keyValuePairs.join("&");
         fetch('https://script.google.com/macros/s/AKfycbxAihDpYdOTYRizViXo09qjXZIucsn3usrfyOmPariAPWhnSUgn4mFZL3tPdpElYSrfNw/exec', {
+          redirect: "follow",
           method: 'POST',
-          body: data,
-        }).then(response => response.text())
-          .then(result => alert(result))
-          .catch(error => console.error('Error:', error));
+          body: formDataString,
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.text();
+          } else {
+            throw new Error('Failed to submit the form.');
+          }
+        })
+        .then(result => {
+          alert('Form submitted successfully!');
+          form.reset();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('An error occurred while submitting the form.');
+        });
       }
     </script>
   </section>
