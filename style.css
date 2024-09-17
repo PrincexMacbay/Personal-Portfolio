@@ -381,6 +381,55 @@ section {
   font-size: 1.6rem;
 }
 
+.certificates {
+  background-color: var(--bg-color);
+  padding: 10rem 15%;
+}
+
+.certificates-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.certificate-card {
+  background-color: var(--second-bg-color);
+  border-radius: 2rem;
+  padding: 2rem;
+  text-align: center;
+  transition: 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.certificate-card:hover {
+  border-color: var(--main-color);
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(234, 88, 12, 0.5);
+}
+
+.certificate-card img {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.certificate-card h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+}
+
+.certificate-card p {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .certificates-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact {
   background-color: var(--bg-color);
 }
