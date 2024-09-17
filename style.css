@@ -408,6 +408,9 @@ section {
 }
 
 .certificate-card img {
+  height: auto;
+  max-height: 300px; /* Adjust this value as needed */
+  object-fit: cover;
   width: 100%;
   border-radius: 1rem;
   margin-bottom: 1.5rem;
